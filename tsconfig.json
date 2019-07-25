@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "rootDir": "./src/",
+    "composite": false,
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "target": "es2017",
+    "module": "commonjs",
+    "strict": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "types": ["reflect-metadata", "node"],
+    "lib": ["es2017"],
+  },
+  "include": ["src/**/*.ts"]
+}

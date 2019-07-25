@@ -10,8 +10,8 @@
     "ts-node/register"
   ],
   "reporter": [
-    "text-summary",
-    "html"
+    "lcov",
+    "text"
   ],
   "sourceMap": true,
   "instrument": true

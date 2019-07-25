@@ -1,0 +1,27 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "tsconfigRootDir": "."
+  },
+  "extends": [
+    "tslint-config-airbnb-base",
+    "tslint-config-prettier"
+  ],
+  "rules": {
+    "prettier": true,
+    "variable-name": [true, "check-format", "allow-leading-underscore"],
+    "no-unused-expression": true,
+    "no-namespace": true,
+    "no-console": [true, "warning"]
+  },
+  "linterOptions": {
+    "exclude": ["./.vscode", "./doc", "./log", "./public"]
+  },
+  "prettier/prettier": [
+    "error", {
+      "singleQuote": true,
+      "semi": false
+    }
+  ]
+}
