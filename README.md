@@ -1,4 +1,5 @@
 #inversify-grpc
+[![Build Status](https://travis-ci.org/gustavobeavis/inversify-grpc-utils.svg?branch=master)](https://travis-ci.org/gustavobeavis/inversify-grpc-utils)
 
 Some utilities for the development of gRPC applications with Inversify.
 

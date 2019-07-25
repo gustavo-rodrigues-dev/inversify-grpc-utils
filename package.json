@@ -56,6 +56,8 @@
   },
   "scripts": {
     "test": "nyc mocha --opts ./test/mocha.opts",
+    "build": "tsc",
+    "clean:build": "rm -rf ./build",
     "lint": "npm run tslint:check && npm run prettier:check",
     "lint:fix": "npm run tslint:format && npm run prettier:format",
     "prettier:check": "prettier --check '{src,test}/**/*.ts'",
