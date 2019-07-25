@@ -1,0 +1,12 @@
+plugins:
+  tslint:
+    enabled: true
+exclude_patterns:
+  - test/**
+  - **/*.d.ts
+  - **/*.md
+  - *.json
+  - *.yml
+  - .gitignore
+  - .huskyrc
+  - .nycrc
