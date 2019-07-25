@@ -1,0 +1,49 @@
+{
+  "name": "inversify-grpc-utils",
+  "version": "0.0.1",
+  "description": "Some utilities for the development of gRPC applications with Inversify",
+  "types": "build/index.d.ts",
+  "main": "build/index.js",
+  "engines": {
+      "node": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gustavobeavis/inversify-grpc-utils.git"
+  },
+  "keywords": [
+    "inversify",
+    "utils",
+    "grpc"
+  ],
+  "author": "Gustavo S. Rodrigues",
+  "contributors": [
+    {
+      "name": "Gustavo S. Rodrigues",
+      "url": "https://github.com/gustavobeavis"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gustavobeavis/inversify-grpc-utils/issues"
+  },
+  "dependencies": {
+    "@grpc/proto-loader": "^0.5.1",
+    "grpc": "^1.22.2"
+  },
+  "devDependencies": {
+    "@types/mocha": "^5.2.7",
+    "@types/sinon": "^7.0.13",
+    "inversify": "^5.0.1",
+    "mocha": "^6.2.0",
+    "reflect-metadata": "^0.1.13",
+    "sinon": "^7.3.2",
+    "source-map-support": "^0.5.12",
+    "tslint": "^5.18.0",
+    "tslint-config-airbnb-base": "^0.3.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "typescript": "^3.5.3"
+  },
+  "scripts": {}
+}

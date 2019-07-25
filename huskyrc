@@ -1,0 +1,6 @@
+
+"hooks": {
+  "pre-commit": "npm run lint:fix",
+  "pre-push": "npm audit && npm run test",
+  "post-merge": "npm run clear && npm install",
+}
