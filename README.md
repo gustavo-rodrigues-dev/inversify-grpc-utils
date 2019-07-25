@@ -19,5 +19,5 @@ npm install inversify inversify-grpc-utils reflect-metadata --save
 yarn add inversify inversify-grpc-utils reflect-metadata --save
 ```
 
-The `inversify-express-utils` type definitions are included in the npm module and require TypeScript 2.0.
+The `inversify-grpc-utils` type definitions are included in the npm module and require TypeScript 2.0 and [InversifyJS](https://github.com/inversify/InversifyJS).
 Please refer to the [InversifyJS documentation](https://github.com/inversify/InversifyJS#installation) to learn more about the installation process.
