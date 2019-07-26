@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+import "./hello/service.proto";
+
+package main;
+
+service Main {
+    
+}

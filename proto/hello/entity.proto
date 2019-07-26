@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package hello.entity;
+
+message RequestGreat {
+    required string name = 1;
+    int32 count = 2;
+}
+
+message ResponseGreat {
+    string message = 1;
+}

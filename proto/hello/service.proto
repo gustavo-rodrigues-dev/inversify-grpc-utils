@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+import "./entity.proto";
+
+package hello.service;
+
+service Hello {
+    rpc BasicGreat (hello.entity.RequestGreat) returns (hello.entity.ResponseGreat);
+    rpc MultSayGreat ( stream hello.entity.RequestGreat) returns ( hello.entity.ResponseGreat );
+    rpc MultReciveGreat (hello.entity.RequestGreat) returns ( stream hello.entity.ResponseGreat );
+    rpc TalkGreat ( stream hello.entity.RequestGreat) returns ( stream hello.entity.ResponseGreat );
+}
