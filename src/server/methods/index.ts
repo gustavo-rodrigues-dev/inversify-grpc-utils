@@ -1,5 +1,5 @@
-import { handleUnaryCall } from "grpc";
+import { handleUnaryCall } from 'grpc'
 
 export interface UnaryFunctions {
-    [key: string]: handleUnaryCall<any, any>
+  [key: string]: handleUnaryCall<any, any>
 }

@@ -1,4 +1,4 @@
-import { ServiceDefinition } from "@grpc/proto-loader";
+import { ServiceDefinition } from '@grpc/proto-loader'
 
-export const context: Map<string, ServiceDefinition> = new Map();
-export let contextFunctions = {};
+export const context: Map<string, ServiceDefinition> = new Map()
+export let contextFunctions = {}

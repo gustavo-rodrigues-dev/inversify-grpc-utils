@@ -7,7 +7,7 @@ const expect = chai.expect
 
 describe('Hello', () => {
   it('Should return foo', () => {
-    const result = foo();
+    const result = foo()
     expect(result).to.be.equal('bar')
   })
 })
