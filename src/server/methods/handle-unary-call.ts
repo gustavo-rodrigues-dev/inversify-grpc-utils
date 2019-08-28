@@ -1,22 +1,10 @@
-import { context } from "../context";
+import ServerContext from '../context/context';
+import { handleCall } from 'grpc';
 
 export function GrpcHandleUnaryCall(service: string, method: string) {
-    console.log('-- decorator factory invoked --')
-    return function(constructor: Function) {
-      const methods = context.get(service);
-      if(!methods){
-        throw new Error('Unexpected Service');
-      }
-
-      if(!methods[method]){
-        throw new Error(`Unexpected method at ${service}`);
-      }
-
-      if(methods[method].requestStream || methods[method].responseStream){
-        throw new Error(`the method ${method} is not a unary request`);
-      }
-      if(!methods[method].originalName){
-        throw new Error(`the method ${method} is not a unary request`);
-      }
-    }
+  return function(target: object, propertyKey: string, descriptor: PropertyDescriptor) {
+    const instance = ServerContext.getInstance();
+    instance.addService(service);
+    instance.addHandle(service, method, <handleCall<object, object>>descriptor.value);
   }
+}

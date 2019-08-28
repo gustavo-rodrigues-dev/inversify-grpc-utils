@@ -1,7 +1,10 @@
 import 'reflect-metadata'
-import { context, contextFunctions } from './context'
+import GrpcContext from './context/context'
 import { ServiceDefinition } from '@grpc/proto-loader'
 import * as protoLoader from '@grpc/proto-loader'
+import { GrpcHandleUnaryCall } from './methods/handle-unary-call';
+import { handleCall, ServerCredentials } from 'grpc';
+import { RequestType, ResponseType } from './context/index';
 interface PackageOptions extends protoLoader.Options {
   package?: string
 }
@@ -12,42 +15,24 @@ interface GrpcServer {
 }
 declare type PackageDefinition = protoLoader.PackageDefinition
 
-function GrpcConfigServer(PROTO_PATH: string, options: PackageOptions) {
-  console.log('-- decorator factory invoked --')
+function GrpcConfigServer(PROTO_PATH: string, options: PackageOptions, bind: string) {
+  const instance = GrpcContext.getInstance();
+  instance.setServer();
   return function(constructor: Function) {
-    console.log('-- decorator invoked --')
     const packageDefinition = <PackageDefinition>(
       protoLoader.loadSync(PROTO_PATH, options)
     )
 
     const services = Object.keys(packageDefinition)
+    
     constructor.prototype.packageDefinition = packageDefinition
     services.forEach(service => {
       if (!packageDefinition[service].format) {
-        context.set(service, <ServiceDefinition>packageDefinition[service])
+        instance.addServiceDefinition(service, <ServiceDefinition>packageDefinition[service])
       }
     })
-  }
-}
-
-function GrpcUnary(service: string, method: string) {
-  console.log('-- decorator factory invoked --')
-  return function(constructor: Function) {
-    const methods = context.get(service)
-    if (!methods) {
-      throw new Error('Unexpected Service')
-    }
-
-    if (!methods[method]) {
-      throw new Error(`Unexpected method at ${service}`)
-    }
-
-    if (methods[method].requestStream || methods[method].responseStream) {
-      throw new Error(`the method ${method} is not a unary request`)
-    }
-    if (!methods[method].originalName) {
-      throw new Error(`the method ${method} is not a unary request`)
-    }
+    instance.getServer().bind(bind, ServerCredentials.createInsecure())
+    instance.getServer().start();
   }
 }
 
@@ -57,10 +42,15 @@ function GrpcUnary(service: string, method: string) {
   enums: String,
   defaults: true,
   oneofs: true,
-})
+}, '0.0.0.0:8082')
 export class ServerTest {
   private packageDefinition!: PackageDefinition
-  constructor() {
-    console.log(context)
+  constructor() {}
+  @GrpcHandleUnaryCall('hello.service.Hello', 'BasicGreat')
+  basicGreat(callback:any){
+    callback(null, {
+      message: callback.name
+    })
   }
+
 }
