@@ -28,7 +28,7 @@
     "url": "https://github.com/gustavobeavis/inversify-grpc-utils/issues"
   },
   "dependencies": {
-    "@grpc/proto-loader": "^0.5.1",
+    "@grpc/proto-loader": "^0.7.0",
     "grpc": "^1.22.2"
   },
   "devDependencies": {
